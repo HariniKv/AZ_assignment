@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Guest Lookup</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="app.js"></script>
+<script type="text/javascript"></script>
+</head>
+<body>
+	<div class="container">
+		<h2>Guest Lookup</h2>
+		<div role="main" ng-app="guestTable" ng-controller="listdata">
+			<div>
+				<form ng-submit="onSubmit()">
+					<div>
+						<label>Guest ID</label>
+					</div>
+					<div>
+						<input type="text" ng-model="form.guestID" />
+					</div>
+					<br>
+					<div>
+						<label>Guest Name</label>
+					</div>
+					<div>
+						<input type="text" ng-model="form.guestName" />
+					</div>
+					<br>
+					<div>
+						<label>Hotel Name</label>
+					</div>
+					<div>
+						<input type="text" ng-model="form.hotel" />
+					</div>
+					<br>
+					<div>
+						<label>Reservation Number</label>
+					</div>
+					<div>
+						<input type="text" ng-model="form.reservationNumber" />
+					</div>
+					<br>
+					<div>
+						<button type="submit">Save</button>
+					</div>
+
+				</form>
+				<br> <br>
+
+			</div>
+			<div>
+
+
+
+				<div>
+					<table  class="table" border="1">
+						<thead>
+							<tr>
+								<th>Guest Id</th>
+								<th>Guest Name</th>
+								<th>Hotel Name</th>
+								<th>Reservation Number</th>
+								<th>Remove</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="g in guests">
+								<td>{{g.guestID}}</td>
+								<td>{{g.guestName}}</td>
+								<td>{{g.hotel}}</td>
+								<td>{{g.reservationNumber}}</td>
+								<td><a ng-click="removeGuest( g.guestID )" class="button">Remove</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
